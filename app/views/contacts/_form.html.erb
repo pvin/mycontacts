@@ -1,0 +1,49 @@
+
+<%= form_tag(controller: "contacts", action: "create", method: "post", )  do %>
+
+
+    <blockquote>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, params[:first_name] %>
+
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, params[:last_name] %>
+    </blockquote>
+
+
+
+
+      <blockquote>
+    <h3>Adress Details </h3>
+    <div id="skillSet1">
+      <%= render 'address' %>
+    </div>
+    <a href="javascript:;" id="addNewTag1">Add Additional Address Details</a>
+
+    <div class="hide" id="new_skills_form1">
+      <%= render partial: "address", locals: {skill: false} %>
+    </div>
+      </blockquote>
+
+
+
+
+    <blockquote>
+    <h3>Phone Number </h3>
+    <div id="skillSet">
+      <%= render 'phone' %>
+    </div>
+    <a href="javascript:;" id="addNewTag">Add Additional Phone Details</a>
+
+    <div class="hide" id="new_skills_form">
+      <%= render partial: "phone", locals: {skill: false} %>
+    </div>
+
+
+
+    </blockquote>
+    <div class="actions"><%= submit_tag 'Save' %></div>
+    <div><%= link_to 'Back', :action => :index %></div>
+
+
+<% end %>
